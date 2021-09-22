@@ -10,14 +10,13 @@ print("4: Division")
 
 
 while True:
-
-        action = input("Please enter your selection (1/2/3/4): ")
-    
-        if action in ('1', '2', '3', '4'):
-
+    action = input("Please enter your selection (1/2/3/4): ")
+    if action in ('1', '2', '3', '4'):
+        try:
             num1 = float(input("Please enter first number: "))
             num2 = float(input("Please enter second number: "))
-
+        except ValueError:
+            print ("You have typed the wrong number!")
         if action == '1':
             print(num1, "+", num2, "=", addition.add_two_numbers(num1, num2))
 
@@ -28,7 +27,10 @@ while True:
             print(num1, "*", num2, "=", multiplication.multiply_two_numbers(num1, num2))
 
         elif action == '4':
+            if (num2 == 0):
+                print("Sorry! You can not devide by 0")
             print(num1, "/", num2, "=", division.divide_two_numbers(num1, num2))
+            
         else:
             print("Invalid input!")
 
